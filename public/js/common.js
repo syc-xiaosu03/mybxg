@@ -1,7 +1,7 @@
+	define(["jquery","cookie"],function($) {
+// NProgress.start();
 
-	NProgress.start();
-
-	NProgress.done();
+// 	NProgress.done();
 
 	$('.navs ul').prev('a').on('click', function () {
 		$(this).next().slideToggle();
@@ -29,17 +29,22 @@
 
 	//全局下检测用户是否有登录,若没有sessid信息,只能在登录页
 	var ret = $.cookie("PHPSESSID");
-	if(!ret){
-		console.log("没有id")
-		location.href = '/login';
+
+	if(!ret && location.pathname !="/main/login"){
+		
+		location.href = '/main/login';
 	};
 	//设置用户信息
 		//拿到cookie里存放的数据,
-	console.log($.cookie("loginInfo"));
 	var loginInfo = $.cookie("loginInfo");
 		//转成对象格式,
 	loginInfo = loginInfo && JSON.parse(loginInfo);
 		//添加到页面中
-	$(".aside .profile img").attr("src",loginInfo.tc_avatar);
-	$(".aside .profile h4").html(loginInfo.tc_name);
+	// $(".aside .profile img").attr("src",loginInfo.tc_avatar);
+	// $(".aside .profile h4").html(loginInfo.tc_name);//
+
+
+	})
+
+	
 

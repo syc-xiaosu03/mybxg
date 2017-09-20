@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/assets/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="/public/assets/nprogress/nprogress.css">
-    <link rel="stylesheet" href="/public/less/index.css">
+    <!-- style标签引入 , 这里的当前路径是index.php所在的路径(因是php文件加载并引用的) -->
+    <?php include("./views/common/style.html"); ?>
 </head>
 <body>
     登录
@@ -34,36 +32,12 @@
 
     </div>
     
-    <script src="/public/assets/jquery/jquery.min.js"></script>
-    <script src="/public/assets/jquery-cookie/jquery.cookie.js"></script>
-    <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
-
+ 
+    <!-- script标签引入 , 这里的当前路径是index.php所在的路径(因是php文件加载并引用的) -->
+    <?php include("./views/common/script.html"); ?>
 
 <script>
-
-    $("#loginbtn").click(function(){           
-            $.ajax({
-               type: "post",
-               url: "/api/login",
-               data : $("#loginForm").serialize(),
-               dataType : "json",
-               success:function(data){ 
-                    //1.重新回到登录页
-                    if(data.code==200){
-                        //2.登录成功后把要传的数据转成字符串格式放到cookie里面
-                    $.cookie("loginInfo",JSON.stringify(data.result),{path:"/"});
-
-                        location.href = "/main/index";
-                    }
-               }
-        });
-
-            return false;     
-});
-
-    
-
-
+        require(["login"])
 </script>
 </body>
 </html>
