@@ -5,6 +5,7 @@ require.config({
     cookie : "jquery-cookie/jquery.cookie",
     template : "artTemplate/template-web",
     bootstrap:"bootstrap/js/bootstrap.min",
+    datepicker : 'bootstrap-datepicker/js/bootstrap-datepicker.min',
     util:"../js/util",
     common : "../js/common",
     login : "../js/login",
