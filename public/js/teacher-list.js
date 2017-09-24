@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/9/20.
  */
-define(["jquery","template"],function($,template){
+define(["jquery","template","util","bootstrap"],function($,template,util){
         //调用接口获取所有的讲师数据
     $.ajax({
         type:"get",
@@ -11,6 +11,8 @@ define(["jquery","template"],function($,template){
 
             var html = template("tachertpl",{list:data.result});
             $("#teacherInfo").html(html);
+
+            //1.启用注销功能
             //渲染成功后,绑定点击事件,实现注销功能
             $(".eod").click(function(){
                 var that = $(this);
@@ -47,6 +49,30 @@ define(["jquery","template"],function($,template){
                         }
                         }
                 })
+
+            });
+
+            //2.查看讲师信息
+            $(".preview").click(function(){
+                var that = $(this);
+                var td = that.closest("td");
+                //根据其父元素自定义属性得知是哪个讲师
+                var tcId = td.attr("data-tcId");
+                //向后台发送讲师id请求数据(后台根据这个id回传数据)
+                $.ajax({
+                    type:"get",
+                    url:"/api/teacher/view",
+                    data:{
+                        tc_id :tcId
+                    },
+                    success:function(data){
+                        console.log(data);
+                        var html=template("modelTpl",data.result);
+                        $("#modelInfo").html(html);
+                        $("#teacherModal").modal();
+                    }
+                })
+
 
             });
 
