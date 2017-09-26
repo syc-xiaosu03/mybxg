@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/9/25.
  */
-define(["jquery","template","uploadify"],function($,template){
+define(["jquery","template","uploadify","region"],function($,template){
     //调用接口获取后台信息
     $.ajax({
         type:"get",
@@ -23,11 +23,17 @@ define(["jquery","template","uploadify"],function($,template){
                 uploader : '/api/uploader/avatar',
                 fileObjName : 'tc_avatar',
                 onUploadSuccess: function(a,b){
-                    console.log(b);
                     location.href="/teacher/list";
                 }
             })
 
+            //处理省市县三级联动(利用插件)
+            $("#pcd").region({
+                url : '/public/assets/jquery-region/region.json'
+            })
+
+        
+    
              
         }
 
