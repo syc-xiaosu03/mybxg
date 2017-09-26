@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/9/25.
  */
-define(["jquery","template","uploadify","region"],function($,template){
+define(["jquery","template","ckeditor","uploadify","region","datepicker","language"],function($,template,CKEDITOR){
     //调用接口获取后台信息
     $.ajax({
         type:"get",
@@ -31,9 +31,15 @@ define(["jquery","template","uploadify","region"],function($,template){
             $("#pcd").region({
                 url : '/public/assets/jquery-region/region.json'
             })
-
-        
-    
+            
+            //处理富文本功能
+            CKEDITOR.replace("editor",{
+                toolbarGroups:[
+                    {name:"clipboard" ,groups:["clpboard","undo"]},
+                    {name:"editing",groups:["find","selection0","spellchecker","editing"]}
+                ]
+            });
+            
              
         }
 

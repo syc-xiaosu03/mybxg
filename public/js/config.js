@@ -12,7 +12,7 @@ require.config({
     form:"jquery-form/jquery.form",
     uploadify:'uploadify/jquery.uploadify.min',
     region:"jquery-region/jquery.region",
-    ckeditor:"cdeditor/ckeditor",
+    ckeditor : 'ckeditor/ckeditor',
 
     //自定义模块
     util:"../js/util",
@@ -22,7 +22,7 @@ require.config({
     teacheradd:"../js/teacher-add",
     settings:"../js/settings"
 
-    // require :'require/require's
+  
   },
   shim:{
     bootstrap:{
@@ -36,6 +36,9 @@ require.config({
     },
     uploadify:{
       deps:["jquery"]
+    },
+    ckeditor:{
+      exports:"CKEDITOR"
     }
   }
 })
