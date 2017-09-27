@@ -20,7 +20,11 @@ require.config({
     login : "../js/login",
     teacherlist:"../js/teacher-list",
     teacheradd:"../js/teacher-add",
-    settings:"../js/settings"
+    settings:"../js/settings",
+    index:"../js/index",
+    
+    courselist:"../js/course-list",
+    courseadd:"../js/course-add"
 
   
   },

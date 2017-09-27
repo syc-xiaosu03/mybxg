@@ -2,6 +2,8 @@
  * Created by Administrator on 2017/9/20.
  */
 define(["jquery","template","util","bootstrap"],function($,template,util){
+    //设置导航菜单高亮显示
+   util.setMenu(location.pathname)
         //调用接口获取所有的讲师数据
     $.ajax({
         type:"get",

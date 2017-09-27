@@ -24,6 +24,10 @@ define(["jquery"],function($){
                 })
             }
             return result
+        },
+        setMenu:function(path){
+        //设置导航菜单高亮显示
+        $(".navs a[href='"+path+"']").addClass('active').closest('ul').show();
         }
 
     }

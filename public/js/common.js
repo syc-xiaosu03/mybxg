@@ -3,6 +3,7 @@
 
 // 	NProgress.done();
 
+	// 控制左侧导航折叠
 	$('.navs ul').prev('a').on('click', function () {
 		$(this).next().slideToggle();
 	});
